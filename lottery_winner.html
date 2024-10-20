@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+     <style type="text/css">
+     	.bg-danger{
+     		width: 100%;
+     		display: inline-flex;
+            padding: 10px;
+            margin: 10px 0;
+            
+     	}
+        .container{
+            margin-top: 50px;
+            text-align: center;
+            }
+            #demo1{
+                  padding: 5px;
+                  width:100%;
+                  margin-top: 15px;
+                  
+
+            }
+     </style>
+</head>
+<body>
+	<div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-12 col-xs-1">
+    <h1 style="font-family: ' ',cursive">Lottery Winning Number Announcement!!!</h1><br>
+    <p>We are excited to announce the winning number for this week's lottery draw!<br>To find out the winning number, just click the button below</p>
+    <div class="modal" id="modal">
+    	<div class="modal-dialog ">
+    		<div class="modal-content">
+    			<div class="modal-header">
+    				<h4 class="modal-title">LOTTERY WINNING NUMBER
+    				</h4>
+    				<button type="button" class="close" data-dismiss="modal">&times;</button>
+    			</div>
+                <div class="modal-body">
+                	<p id="demo" class="bg-danger"></p>
+
+                </div>
+    		</div>
+    	</div>
+    </div>
+
+
+<input type="button" value="Click Here" onclick="lotteryFun()" class="btn btn-info" data-toggle="modal" data-target="#modal" >
+<p id="demo1" ></p>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+var lottery_num = ['#001','#002','#003','#004','#005'];
+
+
+function lotteryFun(){
+    var result=Math.floor(Math.random() * lottery_num.length);
+	console.log(lottery_num[result])
+	document.getElementById("demo").innerHTML='The Number is: '+lottery_num[result]
+    document.getElementById("demo1").innerHTML='The Number is: '+lottery_num[result]
+    document.getElementById("demo1").style.color="#DF043D "
+}
+
+</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>

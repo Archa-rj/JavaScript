@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Simple Calculator</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style type="text/css">
+    	h2{
+    		font-family: ' ', cursive;
+    		color: #040B90;
+    	}
+    	.card{
+    		width: 100%;
+    		margin: auto;
+    	}
+    	.custom-width{
+    		width: 100%;
+    	}
+    	.res {
+    	    margin-top: 20px;
+    	    font-size: 24px;
+    	    color: #040B90;
+    	    
+    	}
+
+    </style>
+</head>
+<body class="bg-primary">
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-xs-12">
+			<div class="card border-0 mt-5">
+				<div class="card-title">
+					<h2 class="jumbotron ml-0 mt-2 text-center">SIMPLE CALCULATOR</h2>
+				</div>
+				<div class="card-body">
+					
+						
+					<form>
+						<div class="form-group row">
+							<label for="num1" class="col-sm-3 col-form-label">First Number</label>
+							<div class="col-sm-9">
+								<input type="number" name="num" id="num1" class="form-control custom-width">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="num2" class="col-sm-3 col-form-label">Second Number</label>
+							<div class="col-sm-9">
+								<input type="number" name="num" id="num2" class="form-control custom-width">
+							</div>
+						</div>
+					</form>
+				
+				
+					<div class="dropdown">
+						
+						<select id="operators" class="btn btn-success">
+							<option>--Select any Operator--</option>
+							<option value="add">+</option>
+							<option value="substract">-</option>
+							<option value="multiplication">*</option>
+							<option value="division">/</option>
+						</select>
+						&nbsp;
+						<button type="button" class="btn btn-danger" onclick="resultFunction()">=</button>
+						
+					</div>
+				
+                <div class="res" id="res">
+                	
+                </div>
+               
+			    
+		</div>
+	</div>	
+</div>
+</div>
+</div>
+
+<script type="text/javascript">
+	
+	function resultFunction(){
+		var number1 = parseFloat(document.getElementById("num1").value);
+		var number2 = parseFloat(document.getElementById("num2").value);
+		var operator = document.getElementById("operators").value; 
+		switch(operator){
+			case "add":
+			     numberAddition(number1,number2);
+			     break;
+			case "substract":
+			    numberSubstraction(number1,number2);
+			    break;
+			case "multiplication":
+			    numberMultiplication(number1,number2);
+                break;
+            case "division":
+                 numberDivision(number1,number2);
+                 break
+            default:
+                 document.getElementById("res").innerHTML="Please select an operator"         
+
+		}
+	}
+	function numberAddition(number1,number2){
+		    var result = number1+number2;
+             document.getElementById("res").innerHTML="Result: " + result;
+	}
+	function numberSubstraction(number1,number2){
+             var result = number1-number2;
+             document.getElementById("res").innerHTML="Result: " + result;
+	}
+	function numberMultiplication(number1,number2){
+             var result = number1*number2;
+             document.getElementById("res").innerHTML="Result: " + result;
+	}
+	function numberDivision(number1,number2){
+		if (number2==0){
+			document.getElementById("res").innerHTML="Enter a valid number"
+		}
+		else{
+			var result=number1/number2;
+			document.getElementById("res").innerHTML="Result: " + result;
+		}
+	}
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>
